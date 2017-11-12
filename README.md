@@ -1,2 +1,2 @@
 # Secret-Text
-Android app saves and keeps securly your hidden text.
+Android app saves and keeps securely your hidden text.
