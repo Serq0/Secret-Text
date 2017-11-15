@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.File;
+
 import static android.widget.Toast.LENGTH_SHORT;
 
 public class StartActivity extends AppCompatActivity {
@@ -16,6 +18,18 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        File internalStorageDir = getFilesDir();
+        File filep = new File(internalStorageDir, "password");
+        Files a = new Files();
+
+
+        if(!filep.exists()){
+            Intent intent = new Intent(StartActivity.this, RegisterPasswordActivity.class);
+            intent.putExtra("password",passwordtocheck);
+            startActivity(intent);
+        }
+
     }
 
     private boolean correctPassword(){
@@ -44,6 +58,17 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void login(View view){
+
+        /*
+        File internalStorageDir = getFilesDir();
+        File filep = new File(internalStorageDir, "password");
+        Files file = new Files();
+
+        if(file.readFile("password",getApplicationContext())==""){
+            Intent intent = new Intent(StartActivity.this, MenuActivity.class);
+            //intent.putExtra("password",passwordtocheck);
+            startActivity(intent);
+        }*/
 
         if(correctPassword())
         {
